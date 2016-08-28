@@ -1,0 +1,47 @@
+<%= stylesheet_link_tag params[:controller] %>
+
+<body class="home">
+
+<div class="container registration">
+
+  <div class="logo" id="logo">
+    <img src="http://blog.weddly.co/wp-content/uploads/2016/08/logo-3-1.png">
+  </div>
+  <p> Za chwilię zaczniesz planować wesele </p>
+  <form>
+    <div class="form-group">
+        <input type="text" class="form-control" id="your-name" placeholder="E-mail">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" id="partners-name" placeholder="Hasło">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-warning">Sign Up</button>
+    </div>
+  </form>
+  <div class="row">
+    <div class=" signup">
+    <%= form_for(@user) do |f| %>
+      <div class="form-group">
+      <%= f.text_field :name, placeholder: "name", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.email_field :email, placeholder: "email", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password, placeholder: "Hasło", class: "form-control" %>
+    </div>
+      <div class="form-group">
+      <%= f.password_field :password_confirmation,
+            placeholder: "Potwierdzenie hasła",
+            class: "form-control" %>
+          </div>
+          <div class="form-group">
+      <%= f.submit "Create my account", class: "btn btn-warning" %>
+    </div>
+    <% end %>
+  </div>
+  </div>
+</div>
+<%= debug(params) if Rails.env.development? %>
+</body>
