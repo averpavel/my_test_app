@@ -1,5 +1,12 @@
 <%= stylesheet_link_tag params[:controller] %>
-
+<li id="checklist_item-<%= checklist_item.id %>">
+  <%= link_to gravatar_for(checklist_item.user, size: 50), checklist_item.user %>
+  <span class="user"><%= link_to checklist_item.user.name, checklist_item.user %></span>
+  <span class="content"><%= checklist_item.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(checklist_item.created_at) %> ago.
+  </span>
+</li>
 <div class='container'>
   <div class="header">
     <div class="logo">

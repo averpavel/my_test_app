@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @checklist_items = @user.checklist_items.paginate(page: params[:page])
   end
 
   def new
